@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlowMart Cosmetics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+<!-- NAVBAR -->
+<header class="bg-white shadow">
+    <div class="max-w-7xl mx-auto px-5 py-3
+                flex items-center justify-between">
+
+        <h1 class="text-2xl font-bold text-pink-600">
+            GlowMart
+        </h1>
+
+        <div class="flex w-2/5">
+            <input type="text"
+                placeholder="Search cosmetics..."
+                class="border px-4 py-2 w-full rounded-l-lg">
+            <button class="bg-pink-600 text-white px-5 rounded-r-lg">
+                Search
+            </button>
+        </div>
+
+        <div class="flex gap-5">
+            <span>👤 Login</span>
+            <span>🛒 Cart</span>
+        </div>
+    </div>
+
+    <nav class="border-t flex justify-center gap-10 py-2 text-sm">
+        <a href="#">Makeup</a>
+        <a href="#">Skincare</a>
+        <a href="#">Haircare</a>
+        <a href="#">Fragrance</a>
+        <a href="#" class="text-pink-600">Offers</a>
+    </nav>
+</header>
+
+
+<!-- HERO -->
+<section class="bg-pink-50">
+    <div class="max-w-7xl mx-auto px-8 py-5
+                flex items-center justify-between">
+
+        <div>
+            <p class="text-pink-600 font-semibold">
+                BEAUTY SALE
+            </p>
+
+            <h2 class="text-3xl font-bold mt-1">
+                Beauty Products You'll Love
+            </h2>
+
+            <p class="text-gray-600 mt-2">
+                Makeup, skincare and beauty essentials.
+            </p>
+
+            <button class="bg-pink-600 text-white
+                           px-6 py-2 rounded-lg mt-3">
+                Shop Now
+            </button>
+        </div>
+
+        <img
+            src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=700&q=80"
+            class="w-80 h-32 object-cover rounded-lg"
+            alt="Cosmetics">
+    </div>
+</section>
+
+
+<!-- PRODUCTS -->
+<main class="max-w-7xl mx-auto px-5 py-5">
+
+    <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-bold">
+            Best Selling Products
+        </h2>
+
+        <select class="border rounded px-3 py-1 bg-white">
+            <option>Popular</option>
+            <option>Price Low to High</option>
+            <option>Price High to Low</option>
+        </select>
+    </div>
+
+
+    <!-- FLEXBOX -->
+    <div class="flex gap-4">
+
+        <!-- PRODUCT 1 -->
+        <div class="bg-white rounded-lg border shadow-sm
+                    flex-1 overflow-hidden">
+
+            <img
+                src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=500&q=80"
+                class="w-full h-36 object-contain">
+
+            <div class="p-3">
+                <p class="text-xs text-gray-500">MAYBELLINE</p>
+
+                <h3 class="font-semibold">
+                    Matte Lipstick
+                </h3>
+
+                <span class="text-xs bg-green-600
+                             text-white px-2 py-1 rounded">
+                    4.4 ★
+                </span>
+
+                <p class="mt-2">
+                    <b>₹599</b>
+                    <del class="text-gray-400 ml-2">₹799</del>
+                </p>
+
+                <button class="w-full mt-2 border
+                               border-pink-600 text-pink-600
+                               py-1 rounded">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+
+        <!-- PRODUCT 2 -->
+        <div class="bg-white rounded-lg border shadow-sm
+                    flex-1 overflow-hidden">
+
+            <img
+                src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=500&q=80"
+                class="w-full h-36 object-contain">
+
+            <div class="p-3">
+                <p class="text-xs text-gray-500">SKINCARE</p>
+
+                <h3 class="font-semibold">
+                    Face Moisturizer
+                </h3>
+
+                <span class="text-xs bg-green-600
+                             text-white px-2 py-1 rounded">
+                    4.5 ★
+                </span>
+
+                <p class="mt-2">
+                    <b>₹449</b>
+                    <del class="text-gray-400 ml-2">₹599</del>
+                </p>
+
+                <button class="w-full mt-2 border
+                               border-pink-600 text-pink-600
+                               py-1 rounded">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+
+        <!-- PRODUCT 3 -->
+        <div class="bg-white rounded-lg border shadow-sm
+                    flex-1 overflow-hidden">
+
+            <img
+                src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=500&q=80"
+                class="w-full h-36 object-contain">
+
+            <div class="p-3">
+                <p class="text-xs text-gray-500">MAKEUP</p>
+
+                <h3 class="font-semibold">
+                    Makeup Essentials
+                </h3>
+
+                <span class="text-xs bg-green-600
+                             text-white px-2 py-1 rounded">
+                    4.3 ★
+                </span>
+
+                <p class="mt-2">
+                    <b>₹899</b>
+                    <del class="text-gray-400 ml-2">₹1199</del>
+                </p>
+
+                <button class="w-full mt-2 border
+                               border-pink-600 text-pink-600
+                               py-1 rounded">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+
+        <!-- PRODUCT 4 -->
+        <div class="bg-white rounded-lg border shadow-sm
+                    flex-1 overflow-hidden">
+
+            <img
+                src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=500&q=80"
+                class="w-full h-36 object-contain">
+
+            <div class="p-3">
+                <p class="text-xs text-gray-500">BEAUTY</p>
+
+                <h3 class="font-semibold">
+                    Beauty Essentials
+                </h3>
+
+                <span class="text-xs bg-green-600
+                             text-white px-2 py-1 rounded">
+                    4.6 ★
+                </span>
+
+                <p class="mt-2">
+                    <b>₹749</b>
+                    <del class="text-gray-400 ml-2">₹999</del>
+                </p>
+
+                <button class="w-full mt-2 border
+                               border-pink-600 text-pink-600
+                               py-1 rounded">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+
+<!-- FEATURES -->
+<section class="bg-white border-t">
+    <div class="max-w-7xl mx-auto py-4
+                flex justify-around text-center">
+
+        <div>
+            <b>🚚 Free Delivery</b>
+            <p class="text-xs text-gray-500">Above ₹499</p>
+        </div>
+
+        <div>
+            <b>🔄 Easy Returns</b>
+            <p class="text-xs text-gray-500">Hassle-free returns</p>
+        </div>
+
+        <div>
+            <b>🔒 Secure Payment</b>
+            <p class="text-xs text-gray-500">100% secure</p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="bg-gray-900 text-white text-center py-3">
+    <b class="text-pink-500">GlowMart</b>
+    <p class="text-xs text-gray-400">
+        © 2026 GlowMart | All Rights Reserved
+    </p>
+</footer>
+
+</body>
+</html>
