@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BookVerse - Digital Reading Tracker</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+body{
+background:linear-gradient(135deg,#020617,#0f172a,#1e293b);
+font-family:Arial,sans-serif;
+}
+.glass{
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.15);
+}
+.card{
+transition:.35s;
+}
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 15px 30px rgba(0,0,0,.3);
+}
+</style>
+
+</head>
+
+<body class="text-white min-h-screen">
+
+<div class="max-w-7xl mx-auto p-6">
+
+<!-- Header -->
+
+<div class="flex justify-between items-center mb-8 flex-wrap gap-4">
+
+<div>
+<h1 class="text-5xl font-bold text-blue-400">📚 BookVerse</h1>
+<p class="text-slate-300 mt-2">Track your personal reading journey beautifully.</p>
+</div>
+
+</div>
+
+<!-- Dashboard -->
+
+<div class="grid md:grid-cols-3 gap-4 mb-8">
+
+<div class="glass rounded-2xl p-5">
+<p class="text-slate-300">Total Books</p>
+<h2 id="totalBooks" class="text-4xl font-bold">0</h2>
+</div>
+
+<div class="glass rounded-2xl p-5">
+<p class="text-slate-300">Reading</p>
+<h2 id="readingBooks" class="text-4xl font-bold text-blue-400">0</h2>
+</div>
+
+<div class="glass rounded-2xl p-5">
+<p class="text-slate-300">Completed</p>
+<h2 id="completedBooks" class="text-4xl font-bold text-green-400">0</h2>
+</div>
+
+</div>
+
+<!-- Form -->
+
+<div class="glass rounded-3xl p-6 mb-8">
+
+<h2 class="text-2xl font-bold mb-5">Add New Book</h2>
+
+<div class="grid md:grid-cols-2 gap-4">
+
+<input id="title"
+placeholder="Book Title"
+class="bg-slate-800 rounded-xl p-3 outline-none">
+
+<input id="author"
+placeholder="Author Name"
+class="bg-slate-800 rounded-xl p-3 outline-none">
+
+<input id="genre"
+placeholder="Genre"
+class="bg-slate-800 rounded-xl p-3 outline-none">
+
+<input id="totalPages"
+type="number"
+placeholder="Total Pages"
+class="bg-slate-800 rounded-xl p-3 outline-none">
+
+<input id="currentPage"
+type="number"
+placeholder="Current Page"
+class="bg-slate-800 rounded-xl p-3 outline-none">
+
+<select id="status"
+class="bg-slate-800 rounded-xl p-3">
+
+<option>Reading</option>
+<option>Completed</option>
+<option>Want to Read</option>
+
+</select>
+
+<select id="rating"
+class="bg-slate-800 rounded-xl p-3">
+
+<option value="1">⭐</option>
+<option value="2">⭐⭐</option>
+<option value="3">⭐⭐⭐</option>
+<option value="4">⭐⭐⭐⭐</option>
+<option value="5">⭐⭐⭐⭐⭐</option>
+
+</select>
+
+<textarea id="review"
+rows="3"
+placeholder="Write your review..."
+class="bg-slate-800 rounded-xl p-3 md:col-span-2"></textarea>
+
+<button onclick="saveBook()"
+class="md:col-span-2 bg-gradient-to-r from-blue-500 to-purple-600 py-3 rounded-xl font-bold hover:scale-[1.02] duration-300">
+
+Save Book
+
+</button>
+
+</div>
+
+</div>
+
+<!-- Search -->
+
+<input id="search"
+onkeyup="displayBooks()"
+placeholder="🔍 Search Books..."
+class="w-full bg-slate-800 rounded-xl p-4 mb-8 outline-none">
+
+<!-- Books -->
+
+<div id="books"
+class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
