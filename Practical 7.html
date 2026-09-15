@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>College Help Portal</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            color: #333;
+        }
+
+        /* Header */
+
+        header {
+            background-color: #315c9c;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        header h1 {
+            margin: 0 0 8px;
+            font-size: 30px;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+
+        /* Main */
+
+        .container {
+            width: 700px;
+            max-width: 90%;
+            margin: 35px auto;
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #222;
+        }
+
+
+        /* FAQ */
+
+        .faq {
+            background-color: white;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .question {
+            padding: 17px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .question:hover {
+            background-color: #f0f4fa;
+        }
+
+        .arrow {
+            color: #315c9c;
+            font-size: 18px;
+        }
+
+
+        /* Answer */
+
+        .answer {
+            display: none;
+            padding: 0 20px 18px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .faq.active .answer {
+            display: block;
+        }
+
+        .faq.active .arrow {
+            transform: rotate(180deg);
+        }
+
+
+        /* Footer */
+
+        footer {
+            text-align: center;
+            background-color: #222;
+            color: white;
+            padding: 18px;
+            margin-top: 40px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- Header -->
+
+    <header>
+
+        <h1>College Help Portal</h1>
+
+        <p>Find answers to frequently asked questions</p>
+
+    </header>
+
+
+    <!-- FAQ Section -->
+
+    <div class="container">
+
+        <h2>Frequently Asked Questions</h2>
+
+
+        <!-- Question 1 -->
+
+        <div class="faq">
+
+            <div class="question">
+
+                <span>How can I apply for admission?</span>
+
+                <span class="arrow">▼</span>
+
+            </div>
+
+            <div class="answer">
+
+                You can apply for admission through the
+                official college admission portal by
+                filling out the application form.
+
+            </div>
+
+        </div>
+
+
+        <!-- Question 2 -->
+
+        <div class="faq">
+
+            <div class="question">
+
+                <span>What documents are required for admission?</span>
+
+                <span class="arrow">▼</span>
+
+            </div>
+
+            <div class="answer">
+
+                Students need their academic marksheets,
+                identity proof, photographs and other
+                documents mentioned by the college.
+
+            </div>
+
+        </div>
+
+
+        <!-- Question 3 -->
+
+        <div class="faq">
+
+            <div class="question">
+
+                <span>How can I check my examination schedule?</span>
+
+                <span class="arrow">▼</span>
+
+            </div>
+
+            <div class="answer">
+
+                The examination schedule can be checked
+                through the college website or student portal.
+
+            </div>
+
+        </div>
+
+
+        <!-- Question 4 -->
+
+        <div class="faq">
+
+            <div class="question">
+
+                <span>Where can I find study materials?</span>
+
+                <span class="arrow">▼</span>
+
+            </div>
+
+            <div class="answer">
+
+                Study materials are available on the student
+                portal and can also be obtained from the
+                college library.
+
+            </div>
+
+        </div>
+
+
+        <!-- Question 5 -->
+
+        <div class="faq">
+
+            <div class="question">
+
+                <span>How can I contact my department?</span>
+
+                <span class="arrow">▼</span>
+
+            </div>
+
+            <div class="answer">
+
+                You can contact your department through the
+                official college email, phone number or
+                department office.
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        © 2026 College Help Portal
+
+    </footer>
+
+
+    <!-- JavaScript -->
+
+    <script>
+
+        let questions =
+            document.querySelectorAll(".question");
+
+
+        questions.forEach(function(question) {
+
+            question.addEventListener("click", function() {
+
+                let faq =
+                    question.parentElement;
+
+                faq.classList.toggle("active");
+
+            });
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
