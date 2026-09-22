@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Registration Form</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f5f9;
+            margin: 0;
+        }
+
+
+        /* Header */
+
+        header {
+            background-color: #315c9c;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        header h1 {
+            margin: 0 0 8px;
+            font-size: 30px;
+        }
+
+        header p {
+            margin: 0;
+        }
+
+
+        /* Form Container */
+
+        .container {
+            width: 550px;
+            max-width: 92%;
+            background-color: white;
+            margin: 35px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+
+        /* Form */
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+            color: #444;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #315c9c;
+        }
+
+
+        /* Error */
+
+        .error {
+            color: #d62828;
+            font-size: 13px;
+            margin-top: 5px;
+            display: block;
+        }
+
+
+        /* Button */
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #315c9c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #244a80;
+        }
+
+
+        /* Success Message */
+
+        #success {
+            display: none;
+            margin-top: 20px;
+            padding: 12px;
+            text-align: center;
+            background-color: #dff5e3;
+            color: #187a35;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+
+        /* Footer */
+
+        footer {
+            text-align: center;
+            padding: 18px;
+            background-color: #222;
+            color: white;
+            margin-top: 40px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- Header -->
+
+    <header>
+
+        <h1>Student Registration Portal</h1>
+
+        <p>Enter your details to register</p>
+
+    </header>
+
+
+    <!-- Registration Form -->
+
+    <div class="container">
+
+        <h2>Student Registration Form</h2>
+
+
+        <form id="registrationForm">
+
+
+            <!-- Name -->
+
+            <div class="form-group">
+
+                <label for="name">
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your full name">
+
+                <span
+                    class="error"
+                    id="nameError">
+                </span>
+
+            </div>
+
+
+            <!-- Email -->
+
+            <div class="form-group">
+
+                <label for="email">
+                    Email Address
+                </label>
+
+                <input
+                    type="text"
+                    id="email"
+                    placeholder="Enter your email">
+
+                <span
+                    class="error"
+                    id="emailError">
+                </span>
+
+            </div>
+
+
+            <!-- Mobile -->
+
+            <div class="form-group">
+
+                <label for="mobile">
+                    Mobile Number
+                </label>
+
+                <input
+                    type="text"
+                    id="mobile"
+                    placeholder="Enter 10-digit mobile number">
+
+                <span
+                    class="error"
+                    id="mobileError">
+                </span>
+
+            </div>
+
+
+            <!-- Course -->
+
+            <div class="form-group">
+
+                <label for="course">
+                    Select Course
+                </label>
+
+                <select id="course">
+
+                    <option value="">
+                        Select your course
+                    </option>
+
+                    <option value="BTech">
+                        B.Tech
+                    </option>
+
+                    <option value="BCA">
+                        BCA
+                    </option>
+
+                    <option value="BBA">
+                        BBA
+                    </option>
+
+                    <option value="MCA">
+                        MCA
+                    </option>
+
+                </select>
+
+                <span
+                    class="error"
+                    id="courseError">
+                </span>
+
+            </div>
+
+
+            <!-- Password -->
+
+            <div class="form-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Minimum 6 characters">
+
+                <span
+                    class="error"
+                    id="passwordError">
+                </span>
+
+            </div>
+
+
+            <!-- Confirm Password -->
+
+            <div class="form-group">
+
+                <label for="confirmPassword">
+                    Confirm Password
+                </label>
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Re-enter your password">
+
+                <span
+                    class="error"
+                    id="confirmPasswordError">
+                </span>
+
+            </div>
+
+
+            <!-- Submit -->
+
+            <button type="submit">
+                Register
+            </button>
+
+
+        </form>
+
+
+        <!-- Success -->
+
+        <div id="success">
+
+            Registration successful! 🎉
+
+        </div>
+
+    </div>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        © 2026 College Admission Portal
+
+    </footer>
+
+
+
+    <!-- JavaScript -->
+
+    <script>
+
+        // Get form
+
+        let form =
+            document.getElementById("registrationForm");
+
+
+        // Form submit event
+
+        form.addEventListener("submit", function(event) {
+
+
+            // Prevent page reload
+
+            event.preventDefault();
+
+
+            // Get values
+
+            let name =
+                document.getElementById("name").value.trim();
+
+            let email =
+                document.getElementById("email").value.trim();
+
+            let mobile =
+                document.getElementById("mobile").value.trim();
+
+            let course =
+                document.getElementById("course").value;
+
+            let password =
+                document.getElementById("password").value;
+
+            let confirmPassword =
+                document.getElementById("confirmPassword").value;
+
+
+            // Error elements
+
+            let nameError =
+                document.getElementById("nameError");
+
+            let emailError =
+                document.getElementById("emailError");
+
+            let mobileError =
+                document.getElementById("mobileError");
+
+            let courseError =
+                document.getElementById("courseError");
+
+            let passwordError =
+                document.getElementById("passwordError");
+
+            let confirmPasswordError =
+                document.getElementById("confirmPasswordError");
+
+
+            // Clear old errors
+
+            nameError.innerHTML = "";
+            emailError.innerHTML = "";
+            mobileError.innerHTML = "";
+            courseError.innerHTML = "";
+            passwordError.innerHTML = "";
+            confirmPasswordError.innerHTML = "";
+
+            document.getElementById("success")
+                .style.display = "none";
+
+
+            let valid = true;
+
+
+            // ================= NAME =================
+
+            if (name === "") {
+
+                nameError.innerHTML =
+                    "Please enter your name.";
+
+                valid = false;
+            }
+
+
+            // ================= EMAIL =================
+
+            let emailPattern =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+            if (email === "") {
+
+                emailError.innerHTML =
+                    "Please enter your email.";
+
+                valid = false;
+
+            }
+
+            else if (!emailPattern.test(email)) {
+
+                emailError.innerHTML =
+                    "Please enter a valid email address.";
+
+                valid = false;
+            }
+
+
+            // ================= MOBILE =================
+
+            let mobilePattern =
+                /^[0-9]{10}$/;
+
+
+            if (mobile === "") {
+
+                mobileError.innerHTML =
+                    "Please enter your mobile number.";
+
+                valid = false;
+
+            }
+
+            else if (!mobilePattern.test(mobile)) {
+
+                mobileError.innerHTML =
+                    "Mobile number must contain 10 digits.";
+
+                valid = false;
+            }
+
+
+            // ================= COURSE =================
+
+            if (course === "") {
+
+                courseError.innerHTML =
+                    "Please select a course.";
+
+                valid = false;
+            }
+
+
+            // ================= PASSWORD =================
+
+            if (password === "") {
+
+                passwordError.innerHTML =
+                    "Please enter a password.";
+
+                valid = false;
+
+            }
+
+            else if (password.length < 6) {
+
+                passwordError.innerHTML =
+                    "Password must contain at least 6 characters.";
+
+                valid = false;
+            }
+
+
+            // ================= CONFIRM PASSWORD =================
+
+            if (confirmPassword === "") {
+
+                confirmPasswordError.innerHTML =
+                    "Please confirm your password.";
+
+                valid = false;
+
+            }
+
+            else if (password !== confirmPassword) {
+
+                confirmPasswordError.innerHTML =
+                    "Passwords do not match.";
+
+                valid = false;
+            }
+
+
+            // ================= SUCCESS =================
+
+            if (valid) {
+
+                document.getElementById("success")
+                    .style.display = "block";
+
+                form.reset();
+
+            }
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
