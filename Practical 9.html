@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Personal To-Do List</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+
+<body class="bg-gray-100 min-h-screen">
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="bg-blue-600 text-white text-center py-6">
+
+        <h1 class="text-3xl font-bold">
+            Personal To-Do List
+        </h1>
+
+        <p class="mt-1 text-blue-100">
+            Organize your academic and personal tasks
+        </p>
+
+    </header>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <div class="max-w-2xl mx-auto px-4 py-8">
+
+
+        <!-- Add Task Box -->
+
+        <div class="bg-white p-6 rounded-lg shadow-md">
+
+            <h2 class="text-xl font-bold text-gray-800 mb-4">
+                Add New Task
+            </h2>
+
+
+            <div class="flex gap-3">
+
+                <input
+                    type="text"
+                    id="taskInput"
+                    placeholder="Enter your task..."
+                    class="flex-1 border border-gray-300
+                           rounded-md px-4 py-3
+                           focus:outline-none
+                           focus:border-blue-500">
+
+
+                <button
+                    onclick="addTask()"
+                    class="bg-blue-600 text-white
+                           px-5 py-3 rounded-md
+                           font-semibold
+                           hover:bg-blue-700">
+
+                    Add Task
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= TASK COUNTS ================= -->
+
+        <div class="grid grid-cols-3 gap-4 mt-6">
+
+
+            <!-- Total -->
+
+            <div class="bg-white p-4 rounded-lg shadow text-center">
+
+                <p class="text-gray-500 text-sm">
+                    Total Tasks
+                </p>
+
+                <p
+                    id="totalCount"
+                    class="text-2xl font-bold text-blue-600">
+                    0
+                </p>
+
+            </div>
+
+
+            <!-- Pending -->
+
+            <div class="bg-white p-4 rounded-lg shadow text-center">
+
+                <p class="text-gray-500 text-sm">
+                    Pending
+                </p>
+
+                <p
+                    id="pendingCount"
+                    class="text-2xl font-bold text-orange-500">
+                    0
+                </p>
+
+            </div>
+
+
+            <!-- Completed -->
+
+            <div class="bg-white p-4 rounded-lg shadow text-center">
+
+                <p class="text-gray-500 text-sm">
+                    Completed
+                </p>
+
+                <p
+                    id="completedCount"
+                    class="text-2xl font-bold text-green-600">
+                    0
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= TASK LIST ================= -->
+
+        <div class="bg-white rounded-lg shadow-md mt-6 p-6">
+
+            <h2 class="text-xl font-bold text-gray-800 mb-4">
+                My Tasks
+            </h2>
+
+
+            <ul id="taskList" class="space-y-3">
+
+                <!-- Tasks will be added here -->
+
+            </ul>
+
+
+            <!-- Empty message -->
+
+            <p
+                id="emptyMessage"
+                class="text-center text-gray-500 py-6">
+
+                No tasks added yet.
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+
+        // Get HTML elements
+
+        let taskInput =
+            document.getElementById("taskInput");
+
+        let taskList =
+            document.getElementById("taskList");
+
+        let emptyMessage =
+            document.getElementById("emptyMessage");
+
+        let totalCount =
+            document.getElementById("totalCount");
+
+        let pendingCount =
+            document.getElementById("pendingCount");
+
+        let completedCount =
+            document.getElementById("completedCount");
+
+
+
+        // Array to store tasks
+
+        let tasks = [];
+
+
+
+        // ================= ADD TASK =================
+
+        function addTask() {
+
+            let taskText =
+                taskInput.value.trim();
+
+
+            // Check empty input
+
+            if (taskText === "") {
+
+                alert("Please enter a task.");
+
+                return;
+
+            }
+
+
+            // Create task object
+
+            let task = {
+
+                id: Date.now(),
+
+                text: taskText,
+
+                completed: false
+
+            };
+
+
+            // Add task to array
+
+            tasks.push(task);
+
+
+            // Clear input
+
+            taskInput.value = "";
+
+
+            // Display tasks
+
+            displayTasks();
+
+        }
+
+
+
+        // ================= DISPLAY TASKS =================
+
+        function displayTasks() {
+
+
+            // Clear previous list
+
+            taskList.innerHTML = "";
+
+
+            // Show / hide empty message
+
+            if (tasks.length === 0) {
+
+                emptyMessage.style.display = "block";
+
+            }
+
+            else {
+
+                emptyMessage.style.display = "none";
+
+            }
+
+
+            // Create each task
+
+            tasks.forEach(function(task) {
+
+
+                // Create list item
+
+                let li =
+                    document.createElement("li");
+
+
+                li.className =
+                    "flex items-center justify-between " +
+                    "border border-gray-200 rounded-md " +
+                    "p-3";
+
+
+                // Task left section
+
+                let left =
+                    document.createElement("div");
+
+
+                left.className =
+                    "flex items-center gap-3";
+
+
+                // Checkbox
+
+                let checkbox =
+                    document.createElement("input");
+
+                checkbox.type = "checkbox";
+
+                checkbox.checked =
+                    task.completed;
+
+                checkbox.className =
+                    "w-5 h-5 cursor-pointer";
+
+
+                // Checkbox event
+
+                checkbox.addEventListener(
+                    "change",
+                    function() {
+
+                        toggleTask(task.id);
+
+                    }
+                );
+
+
+                // Task text
+
+                let text =
+                    document.createElement("span");
+
+                text.textContent =
+                    task.text;
+
+                text.className =
+                    "text-gray-700";
+
+
+                // Completed style
+
+                if (task.completed) {
+
+                    text.classList.add(
+                        "line-through",
+                        "text-gray-400"
+                    );
+
+                }
+
+
+                // Add checkbox and text
+
+                left.appendChild(checkbox);
+
+                left.appendChild(text);
+
+
+
+                // Delete button
+
+                let deleteButton =
+                    document.createElement("button");
+
+
+                deleteButton.textContent =
+                    "Delete";
+
+
+                deleteButton.className =
+                    "bg-red-500 text-white " +
+                    "px-3 py-1 rounded-md " +
+                    "text-sm hover:bg-red-600";
+
+
+                // Delete event
+
+                deleteButton.addEventListener(
+                    "click",
+                    function() {
+
+                        deleteTask(task.id);
+
+                    }
+                );
+
+
+                // Add elements to list item
+
+                li.appendChild(left);
+
+                li.appendChild(deleteButton);
+
+
+                // Add list item to task list
+
+                taskList.appendChild(li);
+
+            });
+
+
+            // Update counts
+
+            updateCounts();
+
+        }
+
+
+
+        // ================= COMPLETE TASK =================
+
+        function toggleTask(id) {
+
+            tasks.forEach(function(task) {
+
+                if (task.id === id) {
+
+                    task.completed =
+                        !task.completed;
+
+                }
+
+            });
+
+
+            displayTasks();
+
+        }
+
+
+
+        // ================= DELETE TASK =================
+
+        function deleteTask(id) {
+
+            tasks =
+                tasks.filter(function(task) {
+
+                    return task.id !== id;
+
+                });
+
+
+            displayTasks();
+
+        }
+
+
+
+        // ================= UPDATE COUNTS =================
+
+        function updateCounts() {
+
+
+            // Total tasks
+
+            let total =
+                tasks.length;
+
+
+            // Completed tasks
+
+            let completed =
+                tasks.filter(function(task) {
+
+                    return task.completed;
+
+                }).length;
+
+
+            // Pending tasks
+
+            let pending =
+                total - completed;
+
+
+            // Display counts
+
+            totalCount.textContent =
+                total;
+
+            completedCount.textContent =
+                completed;
+
+            pendingCount.textContent =
+                pending;
+
+        }
+
+
+
+        // ================= ENTER KEY =================
+
+        taskInput.addEventListener(
+            "keypress",
+            function(event) {
+
+                if (event.key === "Enter") {
+
+                    addTask();
+
+                }
+
+            }
+        );
+
+
+    </script>
+
+</body>
+
+</html>
