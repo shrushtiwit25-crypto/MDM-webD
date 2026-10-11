@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TruthLens - AI Hallucination Checker</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f5fb;
+            color: #24324a;
+        }
+
+        header {
+            background: #243b80;
+            color: white;
+            text-align: center;
+            padding: 18px;
+        }
+
+        header h1 {
+            margin: 0 0 6px;
+            font-size: 28px;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        main {
+            max-width: 950px;
+            margin: 22px auto;
+            padding: 0 20px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 18px;
+        }
+
+        .intro h2 {
+            margin: 0 0 8px;
+            font-size: 23px;
+        }
+
+        .intro p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .input-box {
+            background: white;
+            padding: 18px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px #dce3ef;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 7px;
+            font-size: 14px;
+            resize: vertical;
+        }
+
+        button {
+            margin-top: 12px;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .analyze {
+            background: #344fba;
+            color: white;
+        }
+
+        .sample {
+            background: #e8edff;
+            color: #243b80;
+            margin-left: 6px;
+        }
+
+        .results {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 17px;
+            border-radius: 9px;
+            border-top: 4px solid #94a3b8;
+            box-shadow: 0 2px 8px #e0e6f0;
+        }
+
+        .card h3 {
+            margin: 0 0 10px;
+            font-size: 15px;
+        }
+
+        .card p {
+            font-size: 13px;
+            color: #64748b;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .green { border-color: #22a06b; }
+        .yellow { border-color: #e5a000; }
+        .red { border-color: #e05252; }
+
+        #message {
+            margin-top: 14px;
+            font-size: 13px;
+            color: #475569;
+        }
+
+        footer {
+            text-align: center;
+            color: #64748b;
+            font-size: 12px;
+            padding: 18px;
+        }
+
+        @media (max-width: 650px) {
+            .results {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>TruthLens</h1>
+        <p>Spot AI Hallucinations. Get the Real Facts.</p>
+    </header>
+
+    <main>
+        <div class="intro">
+            <h2>AI Hallucination Checker</h2>
+            <p>Check AI-generated statements and identify claims that need verification.</p>
+        </div>
+
+        <section class="input-box">
+            <h3>Enter Your Text</h3>
+
+            <textarea id="userText"
+                placeholder="Paste your AI-generated text here..."></textarea>
+
+            <br>
+
+            <button class="analyze" onclick="analyzeText()">
+                Analyze Text
+            </button>
+
+            <button class="sample" onclick="sampleText()">
+                Try Sample
+            </button>
+
+            <p id="message">Your results will appear below.</p>
+        </section>
+
+        <section class="results">
+            <div class="card green">
+                <h3>✓ Supported</h3>
+                <p id="supported">Claims that match a predefined demo pattern.</p>
+            </div>
+
+            <div class="card yellow">
+                <h3>! Needs Verification</h3>
+                <p id="verification">Claims that need further checking.</p>
+            </div>
+
+            <div class="card red">
+                <h3>✕ Contradicted Demo</h3>
+                <p id="contradicted">Claims matching a predefined demo pattern.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        TruthLens | AI Hallucination Checker | Educational Project
+    </footer>
+
+    <script>
+        function sampleText() {
+            document.getElementById("userText").value =
+                "The Great Wall of China is visible from the Moon with the naked eye.";
+        }
+
+        function analyzeText() {
+            let text = document.getElementById("userText").value.trim();
+
+            if (text === "") {
+                alert("Please enter some text!");
+                return;
+            }
+
+            let lowerText = text.toLowerCase();
+
+            document.getElementById("supported").innerText =
+                "No supported demo pattern identified.";
+
+            document.getElementById("verification").innerText =
+                "This claim needs to be checked using reliable sources.";
+
+            document.getElementById("contradicted").innerText =
+                "No contradicted demo pattern identified.";
+
+            if (lowerText.includes("visible from the moon") ||
+                lowerText.includes("flat earth")) {
+
+                document.getElementById("contradicted").innerText =
+                    "A predefined demo pattern matched. Verify independently.";
+
+            } else if (lowerText.includes("100 degrees celsius") ||
+                       lowerText.includes("100°c")) {
+
+                document.getElementById("supported").innerText =
+                    "A familiar factual pattern matched. Check the context.";
+
+            }
+
+            document.getElementById("message").innerText =
+                "Demo analysis complete. Check important claims with reliable sources.";
+        }
+    </script>
+
+</body>
+</html>
